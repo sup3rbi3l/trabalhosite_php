@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dados</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+
+</head>
+<body>
+    
+</body>
+</html>
+
+{% extends "template.html" %}
+
+
+{% block conteudo %}
+<body>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Idade</th>
+                <th>Cidade</th>
+                <th>Deletar</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for dados in table_data %}
+            <tr>
+                <td>{{ dados[1] }}</td>
+                <td>{{ dados[2] }}</td>
+                <td>{{ dados[3] }}</td>
+                <td><a class="button" href="/excluir_usuario/{{ dados[0]}}">Deletar</a></td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+</body>
+</html>
+{% endblock %}
