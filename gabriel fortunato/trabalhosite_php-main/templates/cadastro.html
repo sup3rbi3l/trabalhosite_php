@@ -1,0 +1,56 @@
+{% extends "template.html" %}
+
+
+{% block conteudo %}
+
+
+<body style="text-align: center;  font-family: Segoe UI;">
+    <div>
+        <img class="imgpython" src="{{url_for('static', filename='giphy.gif')}}">
+        <h1 style="text-align: center; font-size: 25px; font-family: Segoe UI;">
+            Por favor, crie a sua conta
+        </h1>
+
+        <div id="error-alert" class="alert alert-danger" role="alert" style="display: none;">
+            <strong>Erro:</strong> {{ error }}
+        </div>
+
+        <form method="POST" action="/cadastro">
+            <div>
+                <input style="margin: 5px" class="inputlogin" type="text" name="nome" placeholder="Nome">
+            </div>
+            <div>
+                <input style="margin: 5px"  class="inputlogin"type="email" name="email" placeholder="Email">
+            </div>
+            <div>
+                <input style="margin: 5px" class="inputlogin" type="password" name="senha" placeholder="Senha">
+            </div>
+
+            <select   style=" border-width: 2px;border-color: yellow;margin: 5px; padding: 10px 20px;width: 205px; font-size: 16px;  border-radius:  8px;"  name="perfil">
+                <option value="tecnico">Técnico</option>
+              <option value="usuario">Usuário</option>
+            </select>
+
+
+            <br>
+
+
+            
+
+            <button class="botaologin" type="submit">Cadastrar</button>
+        </form>
+
+
+        <script>
+            //Limpa os campos do formulário ao entrar na tela
+            $(document).ready(function() {
+              $('input[name="nome"]').val('');
+              $('input[name="email"]').val('');
+              $('input[name="senha"]').val('');
+            });
+          </script>
+
+
+    </div>
+
+{% endblock %}

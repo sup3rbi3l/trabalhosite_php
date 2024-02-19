@@ -1,0 +1,46 @@
+
+
+{% block conteudo %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    
+</body>
+</html>
+
+
+
+<body style="text-align: center;  font-family: Segoe UI;">
+    <div>
+        <img class="imgpython" src="{{url_for('static', filename='giphy.gif')}}">
+        <h1 style="text-align: center; font-size: 25px; font-family: Segoe UI;">
+            Por favor, faça o login
+        </h1>
+
+        <div id="error-alert" class="alert alert-danger" role="alert" style="display: none;">
+            <strong>Erro:</strong> {{ error }}
+        </div>
+
+        <form method="POST" action="/validalogin{{id}}">
+
+            <div>
+                <input style="margin: 5px"  class="inputlogin"type="email" name="email" placeholder="Email">
+            </div>
+            <div>
+                <input style="margin: 5px" class="inputlogin" type="password" name="senha" placeholder="Senha">
+            </div>
+
+            <br>
+            <button class="botaologin" type="submit">Entrar</button>
+        </form>
+    </div>
+
+{% endblock %}

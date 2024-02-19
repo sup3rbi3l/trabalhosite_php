@@ -1,0 +1,63 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>
+    {% block titulo %}
+        {% endblock %}
+    </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dados</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    
+    
+    
+</head>
+<body>
+
+    <nav>
+        <div>
+            <a href="">Flask Python</a>
+            <a href="{{url_for('index')}}">Home</a>
+            {% if session['perfil'] == 'tecnico' %}
+            <a href="{{url_for('dados')}}">Pessoas</a>
+            {% endif %}
+            {% if session['perfil'] == 'usuario' %}
+            <a href="#">Adicionar chamado</a>
+            {% endif %}
+
+
+
+
+
+        </div>
+
+        
+        <div>
+            <a href="{{url_for('pagina_login')}}">Sair</a>
+
+
+
+
+            
+                
+
+            {% if session['perfil'] == 'tecnico' %}
+            <a href="{{url_for('cadastro')}}">Cadastrar usuario</a>
+            {% endif %}
+
+        </div>
+
+
+    </nav>
+    
+        
+    {%block conteudo%}
+
+    {% endblock %}
+
+</body>
+</html>

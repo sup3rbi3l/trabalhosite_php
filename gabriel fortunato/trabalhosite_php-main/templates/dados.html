@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dados</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+
+</head>
+<body>
+    
+</body>
+</html>
+
+{% extends "template.html" %}
+
+
+{% block conteudo %}
+<body>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Perfil</th>
+                {% if session['perfil'] == 'tecnico' %}
+                <th>Deletar/Editar</th>
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for dados in table_data %}
+
+
+            {% if session['perfil'] == 'tecnico' %}
+            <a href="{{url_for('cadastro')}}">Cadastrar usuario</a>
+            {% endif %}
+
+
+
+
+
+            <tr>
+                <td>{{ dados[1] }}</td>
+                <td>{{ dados[2] }}</td>
+                <td>{{ dados[4] }}</td>
+                
+                {% if session['perfil'] == 'tecnico' %}
+                <td>
+                    <a class="button" href="/excluir_usuario/{{ dados[0]}}">Deletar</a>
+                    <a class="button_editar" href="/edit_user/{{ dados[0]}}">Editar</a>
+
+                
+                </td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+</body>
+</html>
+{% endblock %}
